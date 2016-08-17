@@ -41,12 +41,14 @@ public:
 
 # 读取算法
 用两个标志记录当前记录的读取状态：
+
 1. 字段是否含有逗号：have_comma
 2. 字段是否被双引号包裹：half_cell
 
 顺序按字节扫描过去，如果字段有逗号，并且没有被双引号包裹，说明这是一个普通的字段，已经到了结尾了，读取完毕，可进入对下一个字段的读取。
 
 如果当前字节是双引号，那么情况就有点复杂了，它可能是以下x中情况：
+
 1. 被双引号包裹的字段的开始，判断依据是half_cell = false 
 2. 被双引号包裹的字段的中间，也就是被转义的双引号的第一个，判断依据是half_cell = true并且后面还有字符且那个字符也是双引号，此时应该“跳过一格”（就是把下标加1），因为双引号被转义是变成了两个连续的双引号，所以它后面那个是多余的双引号，不用再扫描了，跳过
 3. 被双引号包裹的字段的结束，判断依据是half_cell = true且（后面没有字符了，或后面的字符不是双引号）
@@ -57,11 +59,7 @@ public:
 
 # 项目组成
 1. CSVReader.h和CSVReader.cpp是用来读取csv的主体
-
 2. CSVContainerAdapter.h是一个适配各种数据接口的抽象类接口
-
-3. CSVVectorContainer.h和CSVVectorContainer.cpp是一个用vector<vector<string> >来存储数据的适配器实现例子
-
-4. CSVMapContainer.h和CSVMapContainer.cpp是一个用map<string, vector<string> >来存储数据的适配器实现，其中键值为string，其实是来源于原数据的指定列，该列不能重复
-
+3. CSVVectorContainer.h和CSVVectorContainer.cpp是一个用`vector<vector<string> >`来存储数据的适配器实现例子
+4. CSVMapContainer.h和CSVMapContainer.cpp是一个用`map<string, vector<string> >`来存储数据的适配器实现，其中键值为string，其实是来源于原数据的指定列，该列不能重复
 
