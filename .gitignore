@@ -1,0 +1,4 @@
+out
+*.o
+*.csv
+!data_examples/*
