@@ -15,6 +15,7 @@ public:
 	void addToRowDone();
 	void display() const;
 	map<string, vector<string> >& getData();
+	void getColData(map<string, string>& data, size_t indexOfCol) const;
 
 private:
 	vector<string> m_row;

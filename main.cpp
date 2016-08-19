@@ -48,6 +48,10 @@ int main() {
 	vector<vector<string> >& data = vec.getData();
 	display_v(data);
 
+	vector<string> col2;
+	vec.getColData(col2, 2);
+	cout << col2.size() << ' ' << data.size() << endl;
+
 	cout << endl;
 
 

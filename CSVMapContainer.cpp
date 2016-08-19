@@ -41,3 +41,15 @@ void CSVMapContainer::display() const {
 map<string, vector<string> >& CSVMapContainer::getData() {
 	return m_table;
 }
+
+
+void CSVMapContainer::getColData(map<string, string>& data, size_t indexOfCol) const {
+	map<string, vector<string> >::const_iterator it = m_table.begin();
+	while (it != m_table.end()) {
+		const vector<string>& row = it->second;
+		if (indexOfCol >= row.size())
+			throw logic_error("The index of column is large than the row's size.");
+		data[it->first] = row[indexOfCol];
+		++it;
+	}
+}

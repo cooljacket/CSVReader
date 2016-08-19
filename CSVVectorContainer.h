@@ -13,6 +13,7 @@ public:
 	void addToRowDone();
 	void display() const;
 	vector<vector<string> >& getData();
+	void getColData(vector<string>& data, size_t indexOfCol) const;
 
 private:
 	vector<string> m_row;
