@@ -35,3 +35,9 @@ void CSVMapContainer::display() const {
 		++it;
 	}
 }
+
+
+
+map<string, vector<string> >& CSVMapContainer::getData() {
+	return m_table;
+}

@@ -12,6 +12,7 @@ public:
 	void addToRow(const string& cell);
 	void addToRowDone();
 	void display() const;
+	vector<vector<string> >& getData();
 
 private:
 	vector<string> m_row;

@@ -21,3 +21,8 @@ void CSVVectorContainer::display() const {
 		cout << endl;
 	}
 }
+
+
+vector<vector<string> >& CSVVectorContainer::getData() {
+	return m_table;
+}

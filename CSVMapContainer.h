@@ -14,6 +14,7 @@ public:
 	void addToRow(const string& cell);
 	void addToRowDone();
 	void display() const;
+	map<string, vector<string> >& getData();
 
 private:
 	vector<string> m_row;
