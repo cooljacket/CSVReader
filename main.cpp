@@ -58,8 +58,7 @@ int main() {
 	CSVMapContainer m;
 	CSVReader::read("data_examples/input2.csv", &m);
 	map<string, vector<string> >& data2 = m.getData();
-	display_m(data2);
-
+	m.display();
 
 	return 0;
 }

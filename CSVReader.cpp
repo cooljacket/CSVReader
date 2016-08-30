@@ -37,17 +37,13 @@ void CSVReader::line_to_cells(const string& line, CSVContainerAdapter* adapter) 
 		}
 
 		if (line[now] == DOUBLE_QUOTS) {
-			if (!half_cell)
+			if (!half_cell) {
 				half_cell = true;
-			else if (now < len-1 && line[now+1] != DOUBLE_QUOTS) {
-				++now;
-				adapter->addToRow(cell);
-				cell.clear();
-				left = now + 1;
+			} else if (now < len-1 && line[now+1] != DOUBLE_QUOTS) {
 				have_comma = false;
 				half_cell = false;
 			} else {
-				cell.push_back(line[now++]);
+				cell.push_back(line[now++]);	
 			}
 			continue;
 		}
